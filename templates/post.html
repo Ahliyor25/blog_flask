@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Blog</title>
+</head>
+<body align="center">
+<br/><br/><br/>
+		<h1>{{ data.title }} </h1>
+		<p>{{ data.text }} </p>
+		<form action="/post/like/{{data.id}}" method="post">
+		<button type="submit">like {{data.likes}}</button>
+		</form>
+		<form action="/post/dislike/{{data.id}}" method="post">
+			<button type="submit">Dislike {{data.dislikes}}</button>
+			</form>
+			<br/><br/><br/>
+	<h3> Comments </h3><br/><br/><br/>
+
+	{% for cmn in comment %}
+	<p>{{ cmn.text }} </p>
+	{% endfor %}
+
+	<br/><br/><br/>
+	<h3>Add comments</h3>
+	<form action='/createcomment/{{data.id}}' method="POST">
+	<textarea type =text  name = 'comment'  ></textarea>
+	<button type = 'submit'> add </button>
+	</form>
+
+
+</body>
+</html>
